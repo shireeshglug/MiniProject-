@@ -159,15 +159,20 @@ else:
 
   
 # saving the files   
-  
-# fname = "weights-Test-CNN.hdf5"
-# model.save_weights(fname,overwrite=True)
+fname = "weights-Test-CNN.hdf5"
+model.save_weights(fname,overwrite=True)
+
+
+model.save('face.json')
+
+
+
 
 ''' End of modeling training '''
 
-score = model.evaluate(x_test, y_test,verbose=0)
-print('Test loss:', score[0])
-print('Test accuracy:', 100*score[1])
+#score = model.evaluate(x_test, y_test,verbose=0)
+#print('Test loss:', score[0])
+#print('Test accuracy:', 100*score[1])
 
 
 # def emotion_analysis(emotions):
@@ -261,3 +266,7 @@ print('Test accuracy:', 100*score[1])
 score = model.evaluate(x_test, y_test,verbose=0)
 print('Test loss:', score[0])
 print('Test accuracy:', 100*score[1])
+
+
+
+

@@ -45,7 +45,7 @@ with open("drive/My Drive/fer2013.csv") as f:
 
 lines = np.array(content)
 
-num_of_instances = 10000
+num_of_instances = lines.size
 
 num_classes = 7 #angry, disgust, fear, happy, sad, surprise, neutral
 batch_size = 128
@@ -90,9 +90,9 @@ y_test = np.array(y_test, 'float32')
 x_train /= 255 #normalize inputs between [0, 1]
 x_test /= 255
 
-x_train = x_train.reshape(x_train.shape[0], 64, 64, 1)
+x_train = x_train.reshape(x_train.shape[0], 48, 48, 1)
 x_train = x_train.astype('float32')
-x_test = x_test.reshape(x_test.shape[0], 64, 64, 1)
+x_test = x_test.reshape(x_test.shape[0], 48, 48, 1)
 x_test = x_test.astype('float32')
 
 print(x_train.shape[0], 'train samples')
@@ -103,7 +103,7 @@ print(x_test.shape[0], 'test samples')
 model = Sequential()
 
 #1st convolution layer
-model.add(Conv2D(64, (5, 5), activation='relu', input_shape=(64,64,1)))
+model.add(Conv2D(64, (5, 5), activation='relu', input_shape=(48,48,1)))
 model.add(MaxPooling2D(pool_size=(5,5), strides=(2, 2)))
 
 #2nd convolution layer
